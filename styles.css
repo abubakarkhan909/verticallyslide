@@ -211,6 +211,8 @@ header .headerdropdown .headerdropdowninner .crossbtn:hover .svg--close g:nth-of
 .portfoliocardup{
   position: relative;
   height: 100%;
+ 
+  background-color: #ffffff;
 }
 .portfoliocardup .cardanchor{
   position: absolute;
@@ -218,7 +220,7 @@ header .headerdropdown .headerdropdowninner .crossbtn:hover .svg--close g:nth-of
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 20;
+  z-index: 2;
 }
 .portfoliocard{
   display: flex;
@@ -227,15 +229,15 @@ header .headerdropdown .headerdropdowninner .crossbtn:hover .svg--close g:nth-of
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  z-index: 1;
   width: 18.33vw;
   border: 1px solid #161616;
-  background-color: #ffffff;
   margin-left: -1px;
   overflow: hidden;
   transition: background-color .25s ease-out;
+  z-index: 3;
+  pointer-events: none;
 }
-.portfoliocard::before{
+.portfoliocardup::before{
     content: '';
     position: absolute;
     top: 0;
@@ -245,14 +247,11 @@ header .headerdropdown .headerdropdowninner .crossbtn:hover .svg--close g:nth-of
     height: calc(100% + 2px);
     background-color: #161616;
     transition: transform .35s cubic-bezier(.51,.11,.17,.98);
-    z-index: -1;
-    transform: scaleY(0);
-    transform-origin: bottom;
     z-index: 1;
     transform: scaleX(0);
     transform-origin: right;
 }
-.portfoliocardup:hover .portfoliocard:before {
+.portfoliocardup:hover:before {
   transform: scaleY(1);
   transition-duration: .55s;
 }
@@ -262,7 +261,6 @@ header .headerdropdown .headerdropdowninner .crossbtn:hover .svg--close g:nth-of
   width: 100%;
   align-items:center;
   justify-content: space-between;
-  z-index: 2;
 }
 .portfoliocardup:hover .toparea{
   stroke: #9beaca;
@@ -290,14 +288,12 @@ header .headerdropdown .headerdropdowninner .crossbtn:hover .svg--close g:nth-of
   -webkit-text-stroke-color: #9beaca;
 
 }
-
 .midarea{
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   transform: rotate(-90deg);
-  z-index: 2;
 }
 .midarea .innermid{
   margin-left: 100px;
@@ -307,6 +303,7 @@ header .headerdropdown .headerdropdowninner .crossbtn:hover .svg--close g:nth-of
   font-size: 14px;
   font-weight: 400;
   text-transform: none;
+  pointer-events: auto;
 }
 .portfoliocardup:hover .midarea a{
   color: #9beaca;
@@ -319,7 +316,6 @@ header .headerdropdown .headerdropdowninner .crossbtn:hover .svg--close g:nth-of
   align-items: center;
   justify-content: center;
   padding: 0 28px 28px 28px;
-  z-index: 2;
 }
 .botarea h2{
   position: absolute;
@@ -367,7 +363,9 @@ header .headerdropdown .headerdropdowninner .crossbtn:hover .svg--close g:nth-of
 .portfoliocardup:hover .botarea .mediaimg img{
   transform: scale(1);
 }
-
+.midarea .innermid a:hover {
+  color: #fff;
+}
 @media only screen and (max-width: 1440px) {
   .botarea h2 {
       bottom: 32px;
